@@ -3,22 +3,18 @@ import { FunctionComponent } from 'react'
 import { usePrevious } from 'react-use'
 import { animated, useSpring } from 'react-spring'
 
-const drinkButtons = [
+const miscButtons = [
   {
-    type: 'beer',
-    label: '🍻',
+    type: 'dog',
+    label: '🐶',
   },
   {
-    type: 'wine',
-    label: '🍾',
+    type: 'bratwurst',
+    label: '🌭',
   },
   {
-    type: 'cocktail',
-    label: '🍹',
-  },
-  {
-    type: 'shot',
-    label: '🥃',
+    type: 'pretzel',
+    label: '🥨',
   },
 ]
 
@@ -32,7 +28,7 @@ const to = {
   color: 'var(--color-bg)',
 }
 
-export const Buttons: FunctionComponent = () => {
+export const MiscButton: FunctionComponent = () => {
   const clicks = useClicks()
   const prevClicks = usePrevious(clicks)
   const insertClicks = useInsertClicks()
@@ -41,10 +37,10 @@ export const Buttons: FunctionComponent = () => {
   return (
     <div>
       <h3 className="text-center m-2 text-2xl">
-        Had a drink?? Add it to the count
+        Is it a dog? Is it a bratwurst? Is it a pretzel? Count it!
       </h3>
       <div className="flex justify-center mt-4">
-        {drinkButtons.map((button) => {
+        {miscButtons.map((button) => {
           const clicksForType =
             clicks?.filter((c) => c.type === button.type).length || 0
           const prevClicksForType =
@@ -57,19 +53,18 @@ export const Buttons: FunctionComponent = () => {
           }))
 
           if (clicksForType !== prevClicksForType) {
-            api.start({ to })
-            setTimeout(() => api.start({ to: { ...from } }), 400)
+            api.start(to)
+            setTimeout(() => api.start(from), 200)
           }
 
           return (
             <animated.button
-              style={styles}
-              onClick={clickedButton(button.type)}
               key={button.type}
               className="text-4xl m-2 p-2 transition border rounded-lg shadow-md hover:scale-110 hover:border-accent focus:outline-none"
+              style={styles}
+              onClick={clickedButton(button.type)}
             >
-              <span className="mr-1">{clicksForType}</span>
-              <span>{button.label}</span>
+              {button.label} {clicksForType}
             </animated.button>
           )
         })}
