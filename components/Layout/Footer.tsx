@@ -1,6 +1,4 @@
 import { FunctionComponent } from 'react'
-// import { SITE_NAME } from 'config'
-
 type Props = {}
 
 const Footer: FunctionComponent<Props> = () => (

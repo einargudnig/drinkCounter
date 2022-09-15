@@ -35,7 +35,7 @@ export const MiscButton: FunctionComponent = () => {
   const clickedButton = (type: string) => () => insertClicks([{ type }])
 
   return (
-    <div>
+    <div className="mt-4">
       <h3 className="text-center m-2 text-2xl">
         Is it a dog? Is it a bratwurst? Is it a pretzel? Count it!
       </h3>

@@ -39,7 +39,7 @@ export const Buttons: FunctionComponent = () => {
   const clickedButton = (type: string) => () => insertClicks([{ type }])
 
   return (
-    <div>
+    <div className="mt-4">
       <h3 className="text-center m-2 text-2xl">
         Had a drink?? Add it to the count
       </h3>
