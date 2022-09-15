@@ -3,24 +3,39 @@ import { FunctionComponent } from 'react'
 import { usePrevious } from 'react-use'
 import { animated, useSpring } from 'react-spring'
 
-const buttons = [
+const drinkButtons = [
   {
-    type: 'happy',
-    label: '😊',
+    type: 'beer',
+    label: '🍻',
   },
   {
-    type: 'sad',
-    label: '😞',
+    type: 'wine',
+    label: '🍾',
   },
   {
-    type: 'party',
-    label: '🎉',
+    type: 'cocktail',
+    label: '🍹',
   },
   {
-    type: 'love',
-    label: '❤️',
+    type: 'shot',
+    label: '🥃',
   },
 ]
+
+// const miscButtons = [
+//   {
+//     type: 'dog',
+//     label: '🐶',
+//   },
+//   {
+//     type: 'bratwurst',
+//     label: '🌭',
+//   },
+//   {
+//     type: 'pretzel',
+//     label: '🥨',
+//   },
+// ]
 
 const from = {
   backgroundColor: 'var(--color-bg)',
@@ -40,12 +55,11 @@ export const Buttons: FunctionComponent = () => {
 
   return (
     <div>
-      <p className="text-center">
-        These buttons update in real time. Go ahead and open several windows to
-        see it in action.
-      </p>
+      <h3 className="text-center m-2 text-2xl">
+        Had a beer?? Add it to the count
+      </h3>
       <div className="flex justify-center mt-4">
-        {buttons.map((button) => {
+        {drinkButtons.map((button) => {
           const clicksForType =
             clicks?.filter((c) => c.type === button.type).length || 0
           const prevClicksForType =
