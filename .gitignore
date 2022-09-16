@@ -2,6 +2,8 @@
 .vercel
 out
 node_modules
+.pnp.js
+/.pnp
 yarn.lock
 .DS_Store
 .env

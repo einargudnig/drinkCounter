@@ -47,8 +47,12 @@ export const Buttons: FunctionComponent = () => {
         {drinkButtons.map((button) => {
           const clicksForType =
             clicks?.filter((c) => c.type === button.type).length || 0
+          // console.log(clicksForType, 'clicksForType')
+
           const prevClicksForType =
             prevClicks?.filter((c) => c.type === button.type).length || 0
+          // console.log(prevClicksForType, 'prevClicksForType')
+
           const [styles, api] = useSpring(() => ({
             ...from,
             config: {

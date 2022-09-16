@@ -6,6 +6,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      spacing: {
+        128: '32rem',
+        144: '36rem',
+      },
       colors: {
         fg: 'var(--color-fg)',
         bg: 'var(--color-bg)',
