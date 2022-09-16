@@ -61,12 +61,12 @@ const Bingo: NextPage = () => {
       }
     })
 
-  function Confetti() {
-    useEffect(() => {
-      start()
-    }, [])
-    return <canvas id="canvas" className="canvas" />
-  }
+  // function Confetti() {
+  //   useEffect(() => {
+  //     start()
+  //   }, [])
+  //   return <canvas id="canvas" className="canvas" />
+  // }
 
   function Tile({ id, children, onToggle, isSet }) {
     const tileStyle = isSet
