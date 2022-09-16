@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import shuffle from 'shuffle-array'
 
-import { start } from '../components/confetti'
+// import { start } from '../components/confetti'
 
 const bingoThings = [
   'Someone falls',
@@ -109,7 +109,7 @@ const Bingo: NextPage = () => {
             </Tile>
           ))}
         </div>
-        {state.won ? <Confetti /> : null}
+        {/* {state.won ? <Confetti /> : null} */}
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
