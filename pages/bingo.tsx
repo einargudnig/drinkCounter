@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 import shuffle from 'shuffle-array'
 
