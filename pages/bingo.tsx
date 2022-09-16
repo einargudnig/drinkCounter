@@ -74,7 +74,7 @@ const Bingo: NextPage = () => {
       : 'flex justify-center items-center p-2.5 font-semibold border-2 border-red-300 border-dashed'
 
     return (
-      <div onClick={onToggle} className={tileStyle}>
+      <div id={id} onClick={onToggle} className={tileStyle}>
         {children}
       </div>
     )

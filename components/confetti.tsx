@@ -60,7 +60,7 @@ export function start() {
     }
 
     let particle = {}
-    let remainingFlakes = 0
+    // let remainingFlakes = 0
     for (var i = 0; i < maxConfettis; i++) {
       particle = particles[i]
 
@@ -68,15 +68,14 @@ export function start() {
       particle.y += (Math.cos(particle.d) + 3 + particle.r / 2) / 2
       particle.tilt = Math.sin(particle.tiltAngle - i / 3) * 15
 
-      if (particle.y <= H) remainingFlakes++
-
-      // If a confetti has fluttered out of view,
-      // bring it back to above the viewport and let if re-fall.
-      if (particle.x > W + 30 || particle.x < -30 || particle.y > H) {
-        particle.x = Math.random() * W
-        particle.y = -30
-        particle.tilt = Math.floor(Math.random() * 10) - 20
-      }
+      if (particle.y <= H)
+        if (particle.x > W + 30 || particle.x < -30 || particle.y > H) {
+          // If a confetti has fluttered out of view,
+          // bring it back to above the viewport and let if re-fall.
+          particle.x = Math.random() * W
+          particle.y = -30
+          particle.tilt = Math.floor(Math.random() * 10) - 20
+        }
     }
 
     return results
