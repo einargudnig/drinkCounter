@@ -1,4 +1,4 @@
-import { useClicks, useInsertClicks } from 'db/clicks'
+import { useDrinksClicks, useInsertDrinksClicks } from 'db/drinkClicks'
 import { FunctionComponent } from 'react'
 import { usePrevious } from 'react-use'
 import { animated, useSpring } from 'react-spring'
@@ -33,9 +33,9 @@ const to = {
 }
 
 export const Buttons: FunctionComponent = () => {
-  const clicks = useClicks()
+  const clicks = useDrinksClicks()
   const prevClicks = usePrevious(clicks)
-  const insertClicks = useInsertClicks()
+  const insertClicks = useInsertDrinksClicks()
   const clickedButton = (type: string) => () => insertClicks([{ type }])
 
   return (
