@@ -26,7 +26,7 @@ const Index: FunctionComponent<Props> = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Welcom to Oktoberfest!!</title>
+        <title>Prost!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
