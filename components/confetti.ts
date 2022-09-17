@@ -1,8 +1,8 @@
 export function start() {
   let W = window.innerWidth
   let H = window.innerHeight
-  const canvas = document.getElementById('canvas')
-  const context = canvas.getContext('2d')
+  const canvas = <HTMLCanvasElement>document.getElementById('canvas')
+  const context = canvas?.getContext('2d')
   const maxConfettis = 150
   const particles = []
 
