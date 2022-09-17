@@ -37,7 +37,10 @@ const newData = data.reduce(
 )
 
 const Bingo: NextPage = () => {
-  const [state, setState] = useState({ checked: {} })
+  const [state, setState] = useState({
+    checked: {},
+    won: false,
+  })
   const isWon = (checked) => {
     const range = [0, 1, 2, 3]
     return (
