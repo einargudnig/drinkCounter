@@ -1,10 +1,8 @@
 import type { NextPage } from 'next'
-import { useState, useEffect } from 'react'
-// import { useState } from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import shuffle from 'shuffle-array'
-
-import { start } from '../components/confetti'
+import Fireworks from '../components/newConfetti'
 
 const bingoThings = [
   'Someone falls',
@@ -66,13 +64,6 @@ const Bingo: NextPage = () => {
       }
     })
 
-  function Confetti() {
-    useEffect(() => {
-      start()
-    }, [])
-    return <canvas id="canvas" className="canvas" />
-  }
-
   function Tile({ id, children, onToggle, isSet }) {
     const tileStyle = isSet
       ? 'flex justify-center items-center p-2.5 font-semibold border-2 border-gray-500 border-dashed bg-green-500'
@@ -114,7 +105,7 @@ const Bingo: NextPage = () => {
             </Tile>
           ))}
         </div>
-        {state.won ? <Confetti /> : null}
+        {state.won ? <Fireworks /> : null}
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">

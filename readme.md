@@ -14,7 +14,7 @@ Wanted to play around and make a fun little website for Oktoberfest.
 1. JS (official support)
 
 ```bash
-npx degit https://github.com/einargudnig/einargudni.com.git
+npx degit https://github.com/einargudnig/oktoberfest22.git
 ```
 
 ## Development
