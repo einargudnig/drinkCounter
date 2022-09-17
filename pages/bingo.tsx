@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
-// import { useState, useEffect } from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+// import { useState } from 'react'
 import Head from 'next/head'
 import shuffle from 'shuffle-array'
 
-// import { start } from '../components/confetti'
+import { start } from '../components/confetti'
 
 const bingoThings = [
   'Someone falls',
@@ -18,7 +18,7 @@ const bingoThings = [
   'Someone tries to speak german',
   'Someone gets a pretzel',
   'One of us gets a free drink',
-  'Someone goes home early',
+  'Someone goes home unusually early',
   'Everyone start to sing',
   'All of us get a free drink ',
   'Someone drops a beer',
@@ -29,7 +29,11 @@ const bingoThings = [
   'Everyone gets a free drink',
 ]
 
-const data = shuffle(bingoThings).reduce(
+const data = shuffle(bingoThings)
+data.length = data.length - 4
+// bingoThings.length = bingoThings.length - 4
+
+const newData = data.reduce(
   (data, value, index) => ({ ...data, [index]: value }),
   {}
 )
@@ -41,14 +45,14 @@ const Bingo: NextPage = () => {
     return (
       undefined !==
         range.find((row) =>
-          range.every((column) => checked[row * 5 + column])
+          range.every((column) => checked[row * 4 + column])
         ) ||
       undefined !==
         range.find((column) =>
-          range.every((row) => checked[row * 5 + column])
+          range.every((row) => checked[row * 4 + column])
         ) ||
-      range.every((index) => checked[index * 5 + index]) ||
-      range.every((index) => checked[index * 5 + 4 - index])
+      range.every((index) => checked[index * 4 + index]) ||
+      range.every((index) => checked[index * 4 + 3 - index])
     )
   }
   const toggle = (id) =>
@@ -62,17 +66,17 @@ const Bingo: NextPage = () => {
       }
     })
 
-  // function Confetti() {
-  //   useEffect(() => {
-  //     start()
-  //   }, [])
-  //   return <canvas id="canvas" className="canvas" />
-  // }
+  function Confetti() {
+    useEffect(() => {
+      start()
+    }, [])
+    return <canvas id="canvas" className="canvas" />
+  }
 
   function Tile({ id, children, onToggle, isSet }) {
     const tileStyle = isSet
-      ? 'flex justify-center items-center p-2.5 font-semibold border-2 border-red-300 border-dashed bg-green-500'
-      : 'flex justify-center items-center p-2.5 font-semibold border-2 border-red-300 border-dashed'
+      ? 'flex justify-center items-center p-2.5 font-semibold border-2 border-gray-500 border-dashed bg-green-500'
+      : 'flex justify-center items-center p-2.5 font-semibold border-2 border-gray-500 border-dashed'
 
     return (
       <div id={id} onClick={onToggle} className={tileStyle}>
@@ -99,18 +103,18 @@ const Bingo: NextPage = () => {
         </a>
 
         <div className="grid grid-cols-4 grid-rows-4 gap-2">
-          {Object.keys(data).map((id) => (
+          {Object.keys(newData).map((id) => (
             <Tile
               key={id}
               id={id}
               isSet={!!state.checked[id]}
               onToggle={() => toggle(id)}
             >
-              {data[id]}
+              {newData[id]}
             </Tile>
           ))}
         </div>
-        {/* {state.won ? <Confetti /> : null} */}
+        {state.won ? <Confetti /> : null}
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
