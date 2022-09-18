@@ -21,10 +21,8 @@ const Index: FunctionComponent<Props> = () => {
     play()
   }
 
-  // const [play] = useSound(soundUrl)
-
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center py-2 w-screen">
       <Head>
         <title>Prost!</title>
         <link rel="icon" href="/favicon.ico" />
@@ -36,7 +34,6 @@ const Index: FunctionComponent<Props> = () => {
           <button
             className=" text-xl flex items-center justify-center p-2 mx-2 transition-all border rounded-md focus:outline-none text-accent hover:scale-110 hover:border-accent"
             onClick={handleClick}
-            // onClick={play}
           >
             Prost 🔉
           </button>

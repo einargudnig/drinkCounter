@@ -69,7 +69,7 @@ const Bingo: NextPage = () => {
 
   function Tile({ id, children, onToggle, isSet }) {
     const tileStyle = isSet
-      ? 'flex justify-center items-center p-2.5 font-semibold border-2 border-gray-500 border-dashed bg-green-500'
+      ? 'flex justify-center items-center p-2.5 font-semibold border-2 border-gray-500 border-dashed bg-green-500 truncate'
       : 'flex justify-center items-center p-2.5 font-semibold border-2 border-gray-500 border-dashed'
 
     return (
@@ -80,7 +80,7 @@ const Bingo: NextPage = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center py-2 w-screen">
       <Head>
         <title>Bingo</title>
         <link rel="icon" href="/favicon.ico" />
@@ -96,7 +96,7 @@ const Bingo: NextPage = () => {
           Back to counter
         </a>
 
-        <div className="grid grid-cols-4 grid-rows-4 gap-2">
+        <div className="grid grid-cols-4 grid-rows-4 gap-2 w-screen mb-5">
           {Object.keys(newData).map((id) => (
             <Tile
               key={id}
