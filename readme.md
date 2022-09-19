@@ -9,6 +9,13 @@ Wanted to play around and make a fun little website for Oktoberfest.
 - There is a bingo
   - everyone has the same tiles, but they are randomised for everyone.
 
+### TODO
+
+- [x] Make counter for drinks and more
+- [x] conenct counter to database
+- [x] Make a simple bingo
+- [ ] Store the 'clicked' value of the bingo in localstorage
+
 ## Quick Start Guide
 
 1. JS (official support)
