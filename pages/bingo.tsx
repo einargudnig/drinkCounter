@@ -1,8 +1,14 @@
 import type { NextPage } from 'next'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import shuffle from 'shuffle-array'
 import Fireworks from '../components/newConfetti'
+
+const getFromStorage = (key) => {
+  if (typeof window !== 'undefined') {
+    return JSON.parse(window.localStorage.getItem(key))
+  }
+}
 
 const bingoThings = [
   'Someone falls',
@@ -27,12 +33,13 @@ const bingoThings = [
   'Everyone gets a free drink',
 ]
 
-const data = shuffle(bingoThings)
-// const data = bingoThings
-data.length = data.length - 4
+const data = bingoThings.slice(0, -4) // shuffle(bingoThings)
+const checkedV2 = getFromStorage('checked') ?? {}
+console.log(checkedV2, 'checkedV2')
+// data.length = data.length - 4
 
 // const handleClick = () => {
-//   return shuffle(data)
+//   // shuffle the bingo tiles
 // }
 
 const newData = data.reduce(
@@ -45,6 +52,13 @@ const Bingo: NextPage = () => {
     checked: {},
     won: false,
   })
+  useEffect(() => {
+    const checkedState = JSON.parse(localStorage.getItem('checked'))
+    const wonState = JSON.parse(localStorage.getItem('won'))
+    if (checkedState) {
+      setState({ checked: checkedState, won: wonState })
+    }
+  }, [])
   const isWon = (checked) => {
     const range = [0, 1, 2, 3]
     return (
@@ -63,6 +77,9 @@ const Bingo: NextPage = () => {
   const toggle = (id) =>
     setState((state) => {
       const checked = { ...state.checked, [id]: !state.checked[id] }
+      console.log(checked, 'CHECKED')
+      // add checked value to localstorage
+      localStorage.setItem('checked', JSON.stringify(checked))
       const won = isWon(checked)
       return {
         ...state,
@@ -102,10 +119,10 @@ const Bingo: NextPage = () => {
           </a>
           {/* <button
             // href="/"
-            onClick={() => handleClick()}
+            // onClick={}
             className="flex items-center justify-center p-2 mx-2 transition-all border rounded-md focus:outline-none text-accent hover:scale-110 hover:border-accent mb-10"
           >
-            Randomize
+            Randomize tiles
           </button> */}
         </div>
 
@@ -114,7 +131,7 @@ const Bingo: NextPage = () => {
             <Tile
               key={id}
               id={id}
-              isSet={!!state.checked[id]}
+              isSet={state.checked[id] ?? false}
               onToggle={() => toggle(id)}
             >
               {newData[id]}
