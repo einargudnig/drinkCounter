@@ -27,9 +27,13 @@ const bingoThings = [
   'Everyone gets a free drink',
 ]
 
-const data = shuffle(bingoThings)
+// const data = shuffle(bingoThings)
+const data = bingoThings
 data.length = data.length - 4
-// bingoThings.length = bingoThings.length - 4
+
+const handleClick = () => {
+  return shuffle(data)
+}
 
 const newData = data.reduce(
   (data, value, index) => ({ ...data, [index]: value }),
@@ -89,12 +93,21 @@ const Bingo: NextPage = () => {
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold mb-10">Bingo</h1>
 
-        <a
-          href="/"
-          className="flex items-center justify-center p-2 mx-2 transition-all border rounded-md focus:outline-none text-accent hover:scale-110 hover:border-accent mb-10"
-        >
-          Back to counter
-        </a>
+        <div className="flex">
+          <a
+            href="/"
+            className="flex items-center justify-center p-2 mx-2 transition-all border rounded-md focus:outline-none text-accent hover:scale-110 hover:border-accent mb-10"
+          >
+            Back to counter
+          </a>
+          {/* <button
+            // href="/"
+            onClick={() => handleClick()}
+            className="flex items-center justify-center p-2 mx-2 transition-all border rounded-md focus:outline-none text-accent hover:scale-110 hover:border-accent mb-10"
+          >
+            Randomize
+          </button> */}
+        </div>
 
         <div className="grid grid-cols-4 grid-rows-4 gap-2 w-screen mb-5">
           {Object.keys(newData).map((id) => (
