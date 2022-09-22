@@ -27,13 +27,13 @@ const bingoThings = [
   'Everyone gets a free drink',
 ]
 
-// const data = shuffle(bingoThings)
-const data = bingoThings
+const data = shuffle(bingoThings)
+// const data = bingoThings
 data.length = data.length - 4
 
-const handleClick = () => {
-  return shuffle(data)
-}
+// const handleClick = () => {
+//   return shuffle(data)
+// }
 
 const newData = data.reduce(
   (data, value, index) => ({ ...data, [index]: value }),
