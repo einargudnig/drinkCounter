@@ -1,14 +1,14 @@
 import type { NextPage } from 'next'
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import shuffle from 'shuffle-array'
+// import shuffle from 'shuffle-array'
 import Fireworks from '../components/newConfetti'
 
-const getFromStorage = (key) => {
-  if (typeof window !== 'undefined') {
-    return JSON.parse(window.localStorage.getItem(key))
-  }
-}
+// const getFromStorage = (key) => {
+//   if (typeof window !== 'undefined') {
+//     return JSON.parse(window.localStorage.getItem(key))
+//   }
+// }
 
 const bingoThings = [
   'Someone falls',
@@ -34,8 +34,6 @@ const bingoThings = [
 ]
 
 const data = bingoThings.slice(0, -4) // shuffle(bingoThings)
-const checkedV2 = getFromStorage('checked') ?? {}
-console.log(checkedV2, 'checkedV2')
 // data.length = data.length - 4
 
 // const handleClick = () => {
