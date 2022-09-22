@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-// import shuffle from 'shuffle-array'
+import shuffle from 'shuffle-array'
 import Fireworks from '../components/newConfetti'
 
 // const getFromStorage = (key) => {
@@ -33,12 +33,7 @@ const bingoThings = [
   'Everyone gets a free drink',
 ]
 
-const data = bingoThings.slice(0, -4) // shuffle(bingoThings)
-// data.length = data.length - 4
-
-// const handleClick = () => {
-//   // shuffle the bingo tiles
-// }
+const data = shuffle(bingoThings).slice(0, -4)
 
 const newData = data.reduce(
   (data, value, index) => ({ ...data, [index]: value }),
@@ -47,14 +42,33 @@ const newData = data.reduce(
 
 const Bingo: NextPage = () => {
   const [state, setState] = useState({
+    bingo_card: [],
     checked: {},
     won: false,
   })
   useEffect(() => {
-    const checkedState = JSON.parse(localStorage.getItem('checked'))
+    const locales = localStorage.getItem('bingo_card')
+    console.log({ locales })
+
+    const bingoCard =
+      localStorage.getItem('bingo_card') === null
+        ? newData
+        : JSON.parse(localStorage.getItem('bingo_card'))
+    localStorage.setItem('bingo_card', JSON.stringify(bingoCard))
+
+    const checkedState =
+      localStorage.getItem('checked') === null
+        ? {}
+        : JSON.parse(localStorage.getItem('checked'))
+    localStorage.setItem('checked', JSON.stringify(checkedState))
+
     const wonState = JSON.parse(localStorage.getItem('won'))
     if (checkedState) {
-      setState({ checked: checkedState, won: wonState })
+      setState({
+        bingo_card: bingoCard,
+        checked: checkedState,
+        won: wonState,
+      })
     }
   }, [])
   const isWon = (checked) => {
@@ -98,6 +112,17 @@ const Bingo: NextPage = () => {
     )
   }
 
+  const handleClick = () => {
+    // localStorage.removeItem('bingo_card')
+    const resetData = data.reduce(
+      (data, value, index) => ({ ...data, [index]: value }),
+      {}
+    )
+    localStorage.setItem('checked', JSON.stringify({}))
+    localStorage.setItem('bingo_card', JSON.stringify(resetData))
+    setState({ bingo_card: resetData, checked: {}, won: false })
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2 w-screen">
       <Head>
@@ -115,24 +140,23 @@ const Bingo: NextPage = () => {
           >
             Back to counter
           </a>
-          {/* <button
-            // href="/"
-            // onClick={}
+          <button
+            onClick={handleClick}
             className="flex items-center justify-center p-2 mx-2 transition-all border rounded-md focus:outline-none text-accent hover:scale-110 hover:border-accent mb-10"
           >
             Randomize tiles
-          </button> */}
+          </button>
         </div>
 
         <div className="grid grid-cols-4 grid-rows-4 gap-2 w-screen mb-5">
-          {Object.keys(newData).map((id) => (
+          {Object.keys(state.bingo_card).map((id) => (
             <Tile
               key={id}
               id={id}
               isSet={state.checked[id] ?? false}
               onToggle={() => toggle(id)}
             >
-              {newData[id]}
+              {state.bingo_card[id]}
             </Tile>
           ))}
         </div>
