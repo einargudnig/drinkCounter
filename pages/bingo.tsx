@@ -103,7 +103,7 @@ const Bingo: NextPage = () => {
   function Tile({ id, children, onToggle, isSet }) {
     const tileStyle = isSet
       ? 'flex justify-center items-center p-2.5 font-semibold border-2 border-gray-500 border-dashed bg-green-500 truncate'
-      : 'flex justify-center items-center p-2.5 font-semibold border-2 border-gray-500 border-dashed'
+      : 'flex justify-center items-center p-2.5 font-semibold border-2 border-gray-500 border-dashed truncate'
 
     return (
       <div id={id} onClick={onToggle} className={tileStyle}>
