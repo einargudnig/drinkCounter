@@ -31,6 +31,17 @@ const bingoThings = [
   'Prost!',
   'People start to dance',
   'Everyone gets a free drink',
+  'Someone gets their nose grabbed',
+  'Someone gets a shot',
+  'Lisa really has to pee',
+  'Nina talks in british accent',
+  'Tara says something inappropriate',
+  'Stradi makes new friends',
+  'Einar does not do a thing',
+  'Old people invite us to their table',
+  'Someone goes alone to a ride',
+  'Someone gets a tattoo',
+  'Someone gets a piercing',
 ]
 
 const data = shuffle(bingoThings).slice(0, -4)
@@ -71,6 +82,7 @@ const Bingo: NextPage = () => {
       })
     }
   }, [])
+
   const isWon = (checked) => {
     const range = [0, 1, 2, 3]
     return (
