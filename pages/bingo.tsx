@@ -89,14 +89,14 @@ const Bingo: NextPage = () => {
     return (
       undefined !==
         range.find((row) =>
-          range.every((column) => checked[row * 4 + column])
+          range.every((column) => checked[row * 5 + column])
         ) ||
       undefined !==
         range.find((column) =>
-          range.every((row) => checked[row * 4 + column])
+          range.every((row) => checked[row * 5 + column])
         ) ||
-      range.every((index) => checked[index * 4 + index]) ||
-      range.every((index) => checked[index * 4 + 3 - index])
+      range.every((index) => checked[index * 5 + index]) ||
+      range.every((index) => checked[index * 5 + 3 - index])
     )
   }
   const toggle = (id) =>
