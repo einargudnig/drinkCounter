@@ -4,7 +4,6 @@ import { MiscButton } from 'components/MiscButton'
 import { FunctionComponent } from 'react'
 import Head from 'next/head'
 import useSound from 'use-sound'
-// import prost from '../public/prost.mp3'
 
 type Props = {}
 

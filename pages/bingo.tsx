@@ -96,7 +96,7 @@ const Bingo: NextPage = () => {
           range.every((row) => checked[row * 5 + column])
         ) ||
       range.every((index) => checked[index * 5 + index]) ||
-      range.every((index) => checked[index * 5 + 3 - index])
+      range.every((index) => checked[index * 5 + 4 - index])
     )
   }
   const toggle = (id) =>
