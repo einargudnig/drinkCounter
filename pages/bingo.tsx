@@ -44,7 +44,7 @@ const bingoThings = [
   'Someone gets a piercing',
 ]
 
-const data = shuffle(bingoThings).slice(0, -4)
+const data = shuffle(bingoThings).slice(0, -6)
 
 const newData = data.reduce(
   (data, value, index) => ({ ...data, [index]: value }),
