@@ -45,7 +45,7 @@ const bingoThings = [
   'Someone mentions a beer baby',
 ]
 
-const data = shuffle(bingoThings).slice(0, 26)
+const data = shuffle(bingoThings).slice(0, 24)
 
 const newData = data.reduce(
   (data, value, index) => ({ ...data, [index]: value }),
@@ -85,7 +85,7 @@ const Bingo: NextPage = () => {
   }, [])
 
   const isWon = (checked) => {
-    const range = [0, 1, 2, 3]
+    const range = [0, 1, 2, 3, 4]
     return (
       undefined !==
         range.find((row) =>
