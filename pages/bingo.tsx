@@ -85,7 +85,7 @@ const Bingo: NextPage = () => {
   }, [])
 
   const isWon = (checked) => {
-    const range = [0, 1, 2, 3, 4]
+    const range = [0, 1, 2, 3]
     return (
       undefined !==
         range.find((row) =>
