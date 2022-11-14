@@ -1,6 +1,6 @@
 import { useInsert, useRealtime } from 'react-supabase'
 
-const TABLE_NAME = 'drinks'
+const TABLE_NAME = 'hungary'
 
 export function useDrinksClicks() {
   const [{ data, error }] = useRealtime(TABLE_NAME, {

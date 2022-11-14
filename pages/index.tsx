@@ -15,27 +15,27 @@ const Index: FunctionComponent<Props> = () => {
     volume: 0.25,
   })
 
-  const handleClick = () => {
-    setPlaybackRate(playbackRate + 0.1)
-    play()
-  }
+  // const handleClick = () => {
+  //   setPlaybackRate(playbackRate + 0.1)
+  //   play()
+  // }
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2 w-screen">
       <Head>
-        <title>Prost!</title>
+        <title>Cheers!!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold mb-10">Welcome to Oktoberfest!!</h1>
+        <h1 className="text-6xl font-bold mb-10">Welcome to Budapest!!</h1>
         <p className="flex">
-          <button
+          {/* <button
             className=" text-xl flex items-center justify-center p-2 mx-2 transition-all border rounded-md focus:outline-none text-accent hover:scale-110 hover:border-accent"
             onClick={handleClick}
           >
             Prost 🔉
-          </button>
+          </button> */}
           <button
             className=" text-xl flex items-center justify-center p-2 mx-2 transition-all border rounded-md focus:outline-none text-accent hover:scale-110 hover:border-accent"
             onClick={() => window['__toggleDarkMode']()}
@@ -50,7 +50,10 @@ const Index: FunctionComponent<Props> = () => {
           </a>
         </p>
         <Buttons />
-        <MiscButton />
+        {/* <MiscButton /> */}
+        <div className="pt-10">
+          <small>Sometimes you will need to refresh to see the values!</small>
+        </div>
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
