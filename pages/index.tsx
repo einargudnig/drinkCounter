@@ -1,19 +1,19 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import { Buttons } from 'components/Buttons'
-import { MiscButton } from 'components/MiscButton'
+// import { MiscButton } from 'components/MiscButton'
 import { FunctionComponent } from 'react'
 import Head from 'next/head'
-import useSound from 'use-sound'
+// import useSound from 'use-sound'
 
 type Props = {}
 
 const Index: FunctionComponent<Props> = () => {
-  const [playbackRate, setPlaybackRate] = useState(0.75)
-  const soundUrl = '/prost.mp3'
-  const [play] = useSound(soundUrl, {
-    playbackRate,
-    volume: 0.25,
-  })
+  // const [playbackRate, setPlaybackRate] = useState(0.75)
+  // const soundUrl = '/prost.mp3'
+  // const [play] = useSound(soundUrl, {
+  //   playbackRate,
+  //   volume: 0.25,
+  // })
 
   // const handleClick = () => {
   //   setPlaybackRate(playbackRate + 0.1)
