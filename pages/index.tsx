@@ -67,8 +67,10 @@ const Index: FunctionComponent<Props> = () => {
         >
           Powered by <span className="text-2xl">☕</span>
         </a> */}
-        This event is sponsored by{' '}
-        <span className="font-semibold">Vello Ehvert</span>
+        <div className="flex">
+          <p className="pr-1">This event is sponsored by</p>{' '}
+          <p className="font-semibold">Vello Ehvert</p>
+        </div>
       </footer>
     </div>
   )
