@@ -146,6 +146,10 @@ const Bingo: NextPage = () => {
             Randomize tiles
           </button>
         </div>
+        <div className="pb-4 text-xs">
+          Randomize is not perfect, so you can only refresh once. After that you
+          have to refresh to randomize again.
+        </div>
 
         <div className="grid grid-cols-4 grid-rows-4 gap-2 w-screen mb-5">
           {Object.keys(state.bingo_card).map((id) => (
@@ -163,14 +167,18 @@ const Bingo: NextPage = () => {
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
+        {/* <a
           className="flex items-center justify-center gap-2"
           href="https://einargudni.com"
           target="_blank"
           rel="noopener noreferrer"
         >
           Powered by <span className="text-2xl">☕</span>
-        </a>
+        </a> */}
+        <div className="flex pt-3">
+          <p className="pr-1">This event is sponsored by</p>{' '}
+          <p className="font-semibold">Vello Ehvert</p>
+        </div>
       </footer>
     </div>
   )

@@ -67,7 +67,7 @@ const Index: FunctionComponent<Props> = () => {
         >
           Powered by <span className="text-2xl">☕</span>
         </a> */}
-        <div className="flex">
+        <div className="flex pt-3">
           <p className="pr-1">This event is sponsored by</p>{' '}
           <p className="font-semibold">Vello Ehvert</p>
         </div>
