@@ -28,6 +28,7 @@ const bingoThings = [
   'Someone gets a shot',
   'Someone gets a tattoo',
   'Someone gets a piercing',
+  'Stebbi sígó er mættur',
 ]
 
 const data = shuffle(bingoThings).slice(0, 16)

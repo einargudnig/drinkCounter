@@ -28,7 +28,9 @@ const Index: FunctionComponent<Props> = () => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold mb-10">Welcome to Budapest!!</h1>
+        <h1 className="text-6xl font-bold mb-10">
+          Budafest christmas shopping 2022!
+        </h1>
         <p className="flex">
           {/* <button
             className=" text-xl flex items-center justify-center p-2 mx-2 transition-all border rounded-md focus:outline-none text-accent hover:scale-110 hover:border-accent"
@@ -57,14 +59,16 @@ const Index: FunctionComponent<Props> = () => {
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
+        {/* <a
           className="flex items-center justify-center gap-2"
           href="https://einargudni.com"
           target="_blank"
           rel="noopener noreferrer"
         >
           Powered by <span className="text-2xl">☕</span>
-        </a>
+        </a> */}
+        This event is sponsored by{' '}
+        <span className="font-semibold">Vello Ehvert</span>
       </footer>
     </div>
   )
